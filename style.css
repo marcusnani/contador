@@ -1,0 +1,102 @@
+/* Corpo e fundo */
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a0a0a;
+    color: #f5f5f5;
+}
+
+/* Fundo animado */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(139, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.9) 80%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-animation::before, .background-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: repeating-radial-gradient(circle, #ff4d4d, transparent 100px);
+    opacity: 0.05;
+    animation: floatBackground 20s linear infinite;
+}
+
+.background-animation::after {
+    animation-direction: reverse;
+    opacity: 0.08;
+}
+
+@keyframes floatBackground {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50%, -50%); }
+}
+
+/* Container principal */
+.container {
+    text-align: center;
+    width: 85%;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    color: #ffb3b3;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #ff4d4d, 0 0 10px #ff4d4d;
+}
+
+/* Textarea com bordas luminosas */
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    font-size: 18px;
+    color: #ffcccc;
+    background-color: transparent;
+    border: 2px solid #ff4d4d;
+    border-radius: 10px;
+    resize: none;
+    outline: none;
+    box-shadow: inset 0 0 8px #ff4d4d;
+}
+
+textarea::placeholder {
+    color: #ff9999;
+}
+
+/* Contador de caracteres futurista */
+.char-count {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6666;
+    text-shadow: 0 0 8px #ff4d4d, 0 0 15px #ff4d4d;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 8px #ff4d4d, 0 0 15px #ff4d4d; }
+    50% { text-shadow: 0 0 12px #ff9999, 0 0 20px #ff4d4d; }
+    100% { text-shadow: 0 0 8px #ff4d4d, 0 0 15px #ff4d4d; }
+}
